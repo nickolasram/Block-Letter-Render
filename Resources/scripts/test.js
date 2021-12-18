@@ -4,12 +4,25 @@ function getText() {
     let x = 0;
     let tracker = lines.length;
     while (x < tracker){ //loop runs for number of lines
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); //test if user is using a popular phone
+        var lineLimit = 18; //Limit of characters before program starts new line.
+        if (isMobile) { linelimit = 9;}
         let zester = lines[x];
-        if (zester.length > 19) {
-          if (zester.charAt(17)==' '){
-            lines.splice(x,1,setCharAt(zester,18," ")); }
-          else{lines.splice(x,1,setCharAt(zester,18,"-"));}
-          lines.splice(x+1,0,getCharAt(zester,18));
+        if (zester.length > lineLimit) {
+          if (zester.charAt(lineLimit-4)==' '){
+            lines.splice(x,1,setCharAt(zester,lineLimit-3," "));
+            lines.splice(x+1,0,getCharAt(zester,lineLimit-3));}
+          else{
+            if(zester.charAt(lineLimit-5)==' '){
+              lines.splice(x,1,setCharAt(zester,lineLimit-4," "));
+              lines.splice(x+1,0,getCharAt(zester,lineLimit-4));
+            }
+            else {
+            lines.splice(x,1,setCharAt(zester,lineLimit-3,"-"));
+            lines.splice(x+1,0,getCharAt(zester,lineLimit-3));
+            }
+          }
+          //lines.splice(x+1,0,getCharAt(zester,15));
           tracker++;
         }
         let input= ""; //initialize
@@ -208,3 +221,5 @@ charAlpha.push(' ', '-','\n');
                   gives us a number
 5. set word[i] to the blockAlpha[that number]
 */
+//Going forward, it needs to adjust better to window resizing and I need to determine a width value for each letter because right now the lineLimit is dictated by the widest characters.
+//if I could calculate the width value of each line, it wouldn't have to have such a short lineLimit
