@@ -4,7 +4,7 @@ function getText() {
     let x = 0;
     let tracker = lines.length;
     while (x < tracker){ //loop runs for number of lines
-        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); //test if user is using a popular phone
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); //test if user is using a popular phone
         var lineLimit = 18; //Limit of characters before program starts new line.
         if (isMobile) { linelimit = 9;}
         let zester = lines[x];
