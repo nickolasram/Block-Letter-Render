@@ -6,20 +6,21 @@ function getText() {
     while (x < tracker){ //loop runs for number of lines
         var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); //test if user is using a popular phone
         var lineLimit = 18; //Limit of characters before program starts new line.
-        if (isMobile) { lineLimit = 9;}
+        var lineRedux = 4; //how much to cut off of each line that is too long
+        if (isMobile) { lineLimit = 9; lineRedux = 3;}
         let zester = lines[x]; //zester is a variable used for testing
         if (zester.length > lineLimit) {
-          if (zester.charAt(lineLimit-4)==' '){
-            lines.splice(x,1,setCharAt(zester,lineLimit-3," "));
-            lines.splice(x+1,0,getCharAt(zester,lineLimit-3));}
+          if (zester.charAt(lineLimit-lineRedux)==' '){
+            lines.splice(x,1,setCharAt(zester,lineLimit-lineRedux+1," "));
+            lines.splice(x+1,0,getCharAt(zester,lineLimit-lineRedux+1));}
           else{
-            if(zester.charAt(lineLimit-5)==' '){
-              lines.splice(x,1,setCharAt(zester,lineLimit-4," "));
-              lines.splice(x+1,0,getCharAt(zester,lineLimit-4));
+            if(zester.charAt(lineLimit-lineRedux-1)==' '){
+              lines.splice(x,1,setCharAt(zester,lineLimit-lineRedux," "));
+              lines.splice(x+1,0,getCharAt(zester,lineLimit-lineRedux));
             }
             else {
-            lines.splice(x,1,setCharAt(zester,lineLimit-3,"-"));
-            lines.splice(x+1,0,getCharAt(zester,lineLimit-3));
+            lines.splice(x,1,setCharAt(zester,lineLimit-lineRedux+1,"-"));
+            lines.splice(x+1,0,getCharAt(zester,lineLimit-lineRedux+1));
             }
           }
           tracker++;
