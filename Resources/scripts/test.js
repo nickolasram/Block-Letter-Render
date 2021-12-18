@@ -1,13 +1,14 @@
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); //test if user is using a popular phone
 function getText() {
+    alert(isMobile);
     let output = ""; //the final output of all calculations
     var lines = document.getElementById('textareabox').value.split('\n'); //Divide value of textarea into individual lines
     let x = 0;
     let tracker = lines.length;
     while (x < tracker){ //loop runs for number of lines
-        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); //test if user is using a popular phone
         var lineLimit = 18; //Limit of characters before program starts new line.
         if (isMobile) { linelimit = 9;}
-        let zester = lines[x];
+        let zester = lines[x]; //zester is a variable used for testing
         if (zester.length > lineLimit) {
           if (zester.charAt(lineLimit-4)==' '){
             lines.splice(x,1,setCharAt(zester,lineLimit-3," "));
@@ -22,7 +23,6 @@ function getText() {
             lines.splice(x+1,0,getCharAt(zester,lineLimit-3));
             }
           }
-          //lines.splice(x+1,0,getCharAt(zester,15));
           tracker++;
         }
         let input= ""; //initialize
