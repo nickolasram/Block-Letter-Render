@@ -1,0 +1,51 @@
+*{
+  font-family: monospace;
+  font-weight: bold;
+}
+
+body{
+  width: 100%;
+  margin: 0;
+}
+div{
+  display: inline-block;
+  height: 100vh;
+}
+div p {
+  position: relative;
+  left: 25px;
+  color: AliceBlue;
+}
+div textarea, div input {
+  position: relative;
+  left: 25px;
+}
+textarea{
+  margin-top: 25px;
+}
+#left{
+  width: 15.6%;
+  float: left;
+  border-right: 6px solid;
+  background-image: linear-gradient(#ab7438,#6c5f4d,#6e8091);
+}
+
+#right{
+  width: 84%;
+  float: right;
+  background-color: #6e8091;
+  text-shadow: 2px 2px #000;
+}
+
+.warning{
+  color: #6a0f0f;
+}
+
+.plead{
+  font-size: .75em;
+}
+
+.limit{
+    width:200px;
+    word-wrap: break-word;
+}
