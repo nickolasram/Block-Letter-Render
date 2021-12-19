@@ -54,7 +54,7 @@ function getCharAt(str,index) {
 //Define Block Letters
 const sp = Array(8);
 for (let i = 0; i < 8; i++){let temp ="";for (let j = 0; j < i; j++){temp += "&ensp;";}sp[i]=temp;} //Generate strings of empty html spaces of various lengths
-const blockAlpha = [Array(27),Array(7)];
+const blockAlpha = [Array(28),Array(7)]; //contains all block letters and their corresponding arrays
 const a1 = `${sp[1]}AAAAA${sp[1]}`;
 const a2 = `A${sp[5]}A`;
 const a3 = "AAAAAAA";
@@ -199,27 +199,11 @@ const dash1 = `${sp[7]}`;
 const dash2 = `-------`;
 const dashBlock = [dash1,dash1,dash1,dash2,dash1,dash1,dash1];
 blockAlpha[27] = dashBlock;
-const new1 = "\n\n\n\n\n\n\n";
-const newBlock = Array(7); for (let i = 0; i < 7; i++) {newBlock[i]=new1;}
-blockAlpha[28] = newBlock;
-//Array of lowercase characters and space and the dash and new line
+//Array of lowercase characters and space and the dash
 let charAlpha = [];
 for (var i = 97; i < 123; i++) {
   charAlpha.push(String.fromCharCode(i).charAt(0));}
-charAlpha.push(' ', '-','\n');
-/*
-1. Create array of characters. We know its going to be 26 then 27
-    initialize empty array
-    for loop
-    start at 97 (the ASCII value of 'a'). run 26 times
-    Push onto array character of String.fromCharCode(i).charAt(0).
-    Now we have toLowerCase alphabet
-2. add onto the end, a space character
-3. get next character from word
-4. Find word character in array of characters
-                  Array.indexOf(input.toLowerCase().charAt(i))
-                  gives us a number
-5. set word[i] to the blockAlpha[that number]
-*/
+charAlpha.push(' ', '-');
+
 //Going forward, it needs to adjust better to window resizing and I need to determine a width value for each letter because right now the lineLimit is dictated by the widest characters.
 //if I could calculate the width value of each line, it wouldn't have to have such a short lineLimit
