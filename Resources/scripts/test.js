@@ -19,6 +19,7 @@ function getText() {
             lines.splice(x,1,setCharAt(zester,lineLimit-lineRedux+1,"-"));
             lines.splice(x+1,0,getCharAt(zester,lineLimit-lineRedux+1));
 	    }
+	  }
           else{
             lines.splice(x,1,setCharAt(zester,lineLimit-lineRedux+1," "));
             lines.splice(x+1,0,getCharAt(zester,lineLimit-lineRedux+1));}
